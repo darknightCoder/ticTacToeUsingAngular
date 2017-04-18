@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Tic Toe game using angular</title>
+  
+  
+  <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Indie+Flower'>
+<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'>
+
+      <link rel="stylesheet" href="css/style.css">
+
+  
+</head>
+
+<body>
+  <body ng-app="ticTocGame">
+    <div class="container" ng-controller="gameController" style="    margin-top: 300px;">
+      <div class="col-sm-12" ng-if="gameTypeNotSelected">
+      <p class="text text-info">Select Game Type </p>
+        <span class="label label-info" ng-click="setGameType('single')"> Multiplayer</span>
+        <span class = "label label-warning" ng-click="setGameType('computer')"> Single player</span>
+      </div>
+      
+       
+      <div class="col-sm-12" ng-if="SymbolNotSelected && !gameTypeNotSelected">
+      <p class="text text-info">Select Symbol </p>
+        <span class="label label-info" ng-click="selectedSymbol('X','O')"> X</span>
+        <span class = "label label-success" ng-click="selectedSymbol('O','X')"> O</span> 
+      </div>      
+
+       <div class="col-sm-12" ng-if="!SymbolNotSelected && !gameTypeNotSelected">
+      <p class="text text-info">{{turn}} has to move </p> 
+        <div class="col-sm-3  box" ng-repeat="box in boxModel" ng-click="boxClicked($index+1)">{{box}}</div>       
+
+      </div>
+      
+       <div class="col-sm-12 scoreCard" ng-if="!SymbolNotSelected && !gameTypeNotSelected">
+       <p>  <span>
+         {{player1.name}}
+         </span>|
+         <span>
+         {{player2.name}}
+         </span>
+         </p>
+         <br>
+                <p>  <span>
+         {{player1.wins}}
+         </span>|
+         <span>
+         {{player2.wins}}
+         </span>
+         </p>
+      </div>
+      
+       
+    </div>
+  <footer>
+
+  <div class="col-sm-12">
+    Designed and Coded by Anand 
+    </div>
+  </footer>
+  
+</body>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js'></script>
+
+    <script src="js/index.js"></script>
+
+</body>
+</html>
